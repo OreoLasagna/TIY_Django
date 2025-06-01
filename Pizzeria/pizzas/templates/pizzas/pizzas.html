@@ -1,0 +1,29 @@
+{% extends 'pizzas/base.html' %}
+
+{% block content %}
+<p>Pizzas</p>
+
+<ul>
+    {% for pizza in pizzas %}
+    <li>
+        <a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza.name }}</a>
+    </li>
+    {% empty %}
+    <li>We don't currently have any pizzas available.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
+
+<!-- Okay so my HTML files should look at my views.py files -->
+
+<!-- <a> href = "{% url 'pizzas:pizza' pizza.id %}"</a>
+
+So we're telling it to look for pizzas dictionary passed in by views.py
+We also want it to put into the URL ITSELF AS THE LINK. The ID associated with the first pizza found in the dictionary list
+From there we say just spit out the pizza.name
+
+Because the pizzas dictionary we are passing into this from views.html is referencing the models.py file
+And in there pizzas can have: name, date_added
+
+-->
