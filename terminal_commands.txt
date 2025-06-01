@@ -1,0 +1,90 @@
+Do this in a standalone terminal. NOT IN VS CODE
+
+Creating Virtual Environment:
+py -m venv ll_env
+
+
+Activating Virtual Environment: -After you've navigated to the proper folder directory-
+ll_env\Scripts\activate
+
+When it works you should see a little (ll_env) to the side of the Command Prompt active line
+
+
+After creating your virtual environment for the first time you have to install Django
+pip install --upgrade pip
+pip install django
+
+
+Thennnnnn you need to create the project in Django. The extra period at the end is important it makes a manage.py file at the folder level
+django-admin startproject (PROJECT NAME GOES HERE - EX: ll_project) .
+
+
+
+Deactivating the Virtual Environment:
+deactivate
+
+
+Viewing the Project and turning it out after you've enabled the virtual environment:
+py manage.py runserver
+
+Local Host is here - http://127.0.0.1:8000/
+Slap that into your URL of a browser of your choice
+
+>Also. Good idea to have one terminal in the background just have the Project running.
+>Then make new terminals to do everything else
+
+
+Turning off the Project:
+Ctrl + C
+
+
+Creating a new app:
+py manage.py startapp learning_logs
+
+
+Creating/Modifying the Database: -Remember the directory where you have direct access to manage.py-
+py manage.py migrate
+
+
+
+Updating a Database to include a specific app:
+py manage.py makemigrations learning_logs
+
+Here we are saying look at the learning_logs folder and grab any changes stuffed into models 
+Then to publish it to the database you then run the py manage.py migrate call again to commit it to the DB
+
+PLEASE NOTE. WHEN YOURE DOING ANYTHING WITH THE DB REMEMBER TO RUN THIS FOR THE APP YOU CREATED.
+NOT THE VIRTUAL ENVIRONMENT OR DJANGO OR WHATEVER.
+
+
+
+Creating a super/admin user:
+py manage.py createsuperuser
+
+You'll be prompted to add a Username. And you HAVE to add a password.
+For this we named our username 'll_admin'
+PW is Test123!
+
+What's confusing is that when you enter in the PW in the terminal it will not actually show it as you type it out
+
+
+
+Accessing the Admin Site:
+http://127.0.0.1:8000/admin/
+
+ll_admin/Test123!
+
+
+
+Creating a shell - Page 386:
+py manage.py shell
+
+To exit a shell session hit CTRL + Z then Enter
+
+Then when we want to test something in the shell...
+from learing_logs.models import Topic
+Topic.objects.all()
+
+
+
+Reference age 387 for how to use foreign keys to retrieve data across linked Classes
