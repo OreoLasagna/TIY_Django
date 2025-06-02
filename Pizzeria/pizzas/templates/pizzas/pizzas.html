@@ -7,6 +7,8 @@
     {% for pizza in pizzas %}
     <li>
         <a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza.name }}</a>
+        <!-- This pizzas:pizza is actually calling the pizza function in the views.py file -->
+        <!-- That's why the pizza.id is included as an argument! -->
     </li>
     {% empty %}
     <li>We don't currently have any pizzas available.</li>
