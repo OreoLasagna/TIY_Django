@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<p>Blogs</p>
+<ul>
+    {% for blog in blogs %}
+    <li>
+        <a href="{% url 'blog:blog' blog.id %}">{{blog.text}}</a>
+        <!--Here we are looking to the view.py folder for functions to call-->
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'blog:new_blog' %}">Add a new blog</a>
+
+{% endblock content %}
