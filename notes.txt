@@ -1,3 +1,4 @@
 Admin credentials: pizza_admin/Test123!
 
 blogadmin/Test123!
+blogpractice/Test321!
