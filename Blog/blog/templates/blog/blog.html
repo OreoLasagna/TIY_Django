@@ -5,9 +5,6 @@
 <p>Parent Blog: {{blog.text}}</p>
 
 <p>List Of Blog Posts</p>
-<p>
-    <a href="{% url 'blog:new_blog_post' blog.id %}">Add new post</a>
-</p>
 <ul>
     {% for blog_post in blog_posts %}
     <!--This is calling the blog_posts list set in the new_blog_post function in views.py-->
@@ -22,5 +19,9 @@
     <li>There are no posts for this blog yet</li>
     {% endfor %}
 </ul>
+
+<p>
+    <a href="{% url 'blog:new_blog_post' blog.id %}">Add new post</a>
+</p>
 
 {% endblock content %}
