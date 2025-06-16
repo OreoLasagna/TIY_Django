@@ -1,17 +1,24 @@
 {% extends 'blog/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+<h1>All Blogs</h1>
+{% endblock page_header %}
 
 {% block content %}
 
-<p>Blogs</p>
-<ul>
+<p>Blog Names</p>
+<ul class="list-group border-bottom pb-2 mb-4">
     {% for blog in blogs %}
-    <li>
+    <li class="list-group-item border-0">
         <a href="{% url 'blog:blog' blog.id %}">{{blog.text}}</a>
         <!--Here we are looking to the view.py folder for functions to call-->
     </li>
+    {%empty%}
+    <li class="list-group-item border-0">No blogs have been entered yet.</li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'blog:new_blog' %}">Add a new blog</a>
+<h4><a href="{% url 'blog:new_blog' %}">Add a new blog</a></h4>
 
 {% endblock content %}
